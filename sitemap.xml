@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/05/26/tail_recursion/tail-recursion/</loc>
+    <loc>http://yoursite.com/tail-recursion/tail-recursion.html</loc>
     
-    <lastmod>2017-05-26T13:12:46.866Z</lastmod>
+    <lastmod>2017-05-26T13:52:28.675Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/05/06/hello/Hello-ByXc/</loc>
+    <loc>http://yoursite.com/programme-exercise/index.html</loc>
+    
+    <lastmod>2017-05-26T13:48:44.782Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/hello/Hello-ByXc.html</loc>
     
     <lastmod>2017-05-07T08:16:19.428Z</lastmod>
     
