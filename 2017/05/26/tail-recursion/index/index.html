@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/02.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/not_no2s.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/o2eds.png">
-<meta property="og:updated_time" content="2017-05-26T16:28:41.066Z">
+<meta property="og:updated_time" content="2017-05-26T17:02:58.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="關於尾遞歸的問題">
 <meta name="twitter:description" content="（我們今天來談談尾遞歸的問題） c primer plus 定義尾遞歸， 這是本人學到遞歸的一個疑惑點。 在 《c primer plus 》中文第六版中， 尾遞歸的是這樣定義的： “最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在return語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”">
@@ -202,7 +202,7 @@
 <a id="more"></a>
 <hr>
 <p>接著書上給的尾遞歸例子是這樣的:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">rfact</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line"></div><div class="line">&#123;</div><div class="line">	<span class="keyword">long</span> ans;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (n &gt; <span class="number">0</span>)</div><div class="line">		ans = n * rfact(n - <span class="number">1</span>);</div><div class="line">	<span class="keyword">else</span></div><div class="line">		ans = <span class="number">1</span>;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> ans;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">   <span class="function"><span class="keyword">long</span> <span class="title">rfact</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">   &#123;</div><div class="line">       <span class="keyword">long</span> ans;</div><div class="line"></div><div class="line">       <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</div><div class="line">           ans = n * rfact(n - <span class="number">1</span>);</div><div class="line">       <span class="keyword">else</span></div><div class="line">           ans = <span class="number">1</span>;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>這個版本，個人覺得不夠好。手動優化了一下。因為對rfact()的單次遞歸調用是函數返回前最後一條的執行語句。在rfact()中碰巧最後一條語句也是對rfact()的調用(引用百度百科， 對於《<em>c primer plus</em>》的定義，也是算尾遞歸吧)：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">rfact</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">1</span>)</div><div class="line">		<span class="keyword">return</span> <span class="number">1</span>;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> rfact(n - <span class="number">1</span>) * n;		<span class="comment">// 省略不必要的存儲</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
@@ -475,15 +475,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hello</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
               </li>
             
             <div class="clearfix"></div>
