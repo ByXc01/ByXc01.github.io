@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ByXc&#39;s blog">
 <meta property="og:description" content="C11 標準 (IS0/IEC 9899.201x) 中， gets() 函數被刪除， 引進了新的函數 gets_s() 。C11 K.3.5.7.1 The gets_s function 代碼如下: 123#define __STDC_WANT_LIB_EXT1__ 1#include &amp;lt;stdio.h&amp;gt;char * gets_s(char *s, rsize_t n);">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/gets_s.png">
-<meta property="og:updated_time" content="2017-05-29T11:10:31.854Z">
+<meta property="og:updated_time" content="2017-05-29T11:25:35.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C11 gets_s() 函數">
 <meta name="twitter:description" content="C11 標準 (IS0/IEC 9899.201x) 中， gets() 函數被刪除， 引進了新的函數 gets_s() 。C11 K.3.5.7.1 The gets_s function 代碼如下: 123#define __STDC_WANT_LIB_EXT1__ 1#include &amp;lt;stdio.h&amp;gt;char * gets_s(char *s, rsize_t n);">
@@ -195,7 +195,7 @@
         <h3 id="C11-標準-IS0-IEC-9899-201x-中，-gets-函數被刪除，-引進了新的函數-gets-s-。"><a href="#C11-標準-IS0-IEC-9899-201x-中，-gets-函數被刪除，-引進了新的函數-gets-s-。" class="headerlink" title="C11 標準 (IS0/IEC 9899.201x) 中， gets() 函數被刪除， 引進了新的函數 gets_s() 。"></a>C11 標準 (IS0/IEC 9899.201x) 中， gets() 函數被刪除， 引進了新的函數 gets_s() 。</h3><p>C11 K.3.5.7.1 The gets_s function 代碼如下:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> __STDC_WANT_LIB_EXT1__ 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">char</span> * <span class="title">gets_s</span><span class="params">(<span class="keyword">char</span> *s, <span class="keyword">rsize_t</span> n)</span></span>;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="因為目前-GCC-中還沒有完全實現該標準，-因此-gets-s-函數尚未包含在目前的-GNU-工具鏈中。-Clang-里也暫時沒有增加對-gets-s-的支持。"><a href="#因為目前-GCC-中還沒有完全實現該標準，-因此-gets-s-函數尚未包含在目前的-GNU-工具鏈中。-Clang-里也暫時沒有增加對-gets-s-的支持。" class="headerlink" title="因為目前 GCC 中還沒有完全實現該標準， 因此 gets_s() 函數尚未包含在目前的 GNU 工具鏈中。 Clang 里也暫時沒有增加對 gets_s() 的支持。"></a>因為目前 GCC 中還沒有完全實現該標準， 因此 gets_s() 函數尚未包含在目前的 GNU 工具鏈中。 Clang 里也暫時沒有增加對 gets_s() 的支持。</h3><p>在 《<em>c primer plus</em>》 也沒過多的介紹。</p>
+<h3 id="因為目前-GCC-中還沒有完全實現該標準，-因此-gets-s-函數尚未包含在目前的-GNU-工具鏈中。-Clang-也暫時沒有增加對-gets-s-的支持。"><a href="#因為目前-GCC-中還沒有完全實現該標準，-因此-gets-s-函數尚未包含在目前的-GNU-工具鏈中。-Clang-也暫時沒有增加對-gets-s-的支持。" class="headerlink" title="因為目前 GCC 中還沒有完全實現該標準， 因此 gets_s() 函數尚未包含在目前的 GNU 工具鏈中。 Clang 也暫時沒有增加對 gets_s() 的支持。"></a>因為目前 GCC 中還沒有完全實現該標準， 因此 gets_s() 函數尚未包含在目前的 GNU 工具鏈中。 Clang 也暫時沒有增加對 gets_s() 的支持。</h3><p>在 《<em>c primer plus</em>》 也沒過多的介紹。</p>
 <p><img src="http://opkl2tvjd.bkt.clouddn.com/gets_s.png" alt="get_s() 介紹" title="gets_s()介紹"></p>
 <p>詳細可查看<a href="http://zh.cppreference.com/w/c/io/gets" title="C 語言查考手冊" target="_blank" rel="external">C 語言參考手冊</a></p>
 
@@ -412,7 +412,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,15 +432,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
              
               <li class="article-tag-list-item">

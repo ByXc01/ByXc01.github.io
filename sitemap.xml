@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/05/26/tail-recursion/index/</loc>
+    
+    <lastmod>2017-05-29T11:34:14.504Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/05/29/gets-s/gets_s/</loc>
     
-    <lastmod>2017-05-29T11:10:31.854Z</lastmod>
+    <lastmod>2017-05-29T11:25:35.336Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/05/29/null-character/index/</loc>
+    
+    <lastmod>2017-05-29T11:22:50.846Z</lastmod>
     
   </url>
   
@@ -12,20 +26,6 @@
     <loc>http://yoursite.com/2017/05/06/hello-world/hello-world/</loc>
     
     <lastmod>2017-05-29T10:57:31.639Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/26/tail-recursion/index/</loc>
-    
-    <lastmod>2017-05-29T10:52:35.569Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/29/null-character/index/</loc>
-    
-    <lastmod>2017-05-29T10:48:55.127Z</lastmod>
     
   </url>
   

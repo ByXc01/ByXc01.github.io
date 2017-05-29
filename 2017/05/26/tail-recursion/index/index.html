@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/02.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/not_no2s.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/o2eds.png">
-<meta property="og:updated_time" content="2017-05-29T10:52:35.569Z">
+<meta property="og:updated_time" content="2017-05-29T11:34:14.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="關於尾遞歸的問題">
 <meta name="twitter:description" content="（我們今天來談談尾遞歸的問題） c primer plus 定義尾遞歸， 這是本人學到遞歸的一個疑惑點。 在 《c primer plus 》中文第六版中， 尾遞歸的是這樣定義的： “最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在return語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”">
@@ -195,7 +195,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="（我們今天來談談尾遞歸的問題）"><a href="#（我們今天來談談尾遞歸的問題）" class="headerlink" title="（我們今天來談談尾遞歸的問題）"></a>（我們今天來談談尾遞歸的問題）</h1><hr>
+        <h3 id="（我們今天來談談尾遞歸的問題）"><a href="#（我們今天來談談尾遞歸的問題）" class="headerlink" title="（我們今天來談談尾遞歸的問題）"></a>（我們今天來談談尾遞歸的問題）</h3><hr>
 <h3 id="c-primer-plus-定義"><a href="#c-primer-plus-定義" class="headerlink" title="c primer plus 定義"></a>c primer plus 定義</h3><p><strong>尾遞歸</strong>， 這是本人學到遞歸的一個疑惑點。 在 《<em>c primer plus</em> 》中文第六版中，</p>
 <p>尾遞歸的是這樣定義的：</p>
 <p><strong>“最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在<code>return</code>語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”</strong></p>
@@ -206,7 +206,7 @@
 <p>這個版本，個人覺得不夠好。手動優化了一下。因為對rfact()的單次遞歸調用是函數返回前最後一條的執行語句。在rfact()中碰巧最後一條語句也是對rfact()的調用(引用百度百科， 對於《<em>c primer plus</em>》的定義，也是算尾遞歸吧)：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">rfact</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">1</span>)</div><div class="line">           <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> rfact(n - <span class="number">1</span>) * n;		<span class="comment">// 省略不必要的存儲</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <hr>
-<p>別以為就這樣就完事了， 那時候我對<strong>尾遞歸</strong>還不是太理解(現在也不是很理解），隨後機上網查， 不搜不知道， 一搜嚇一跳。這跟書本的尾遞歸不太一樣啊。。。</p>
+<p>別以為就這樣就完事了， 那時候我對<strong>尾遞歸</strong>還不是太理解(現在也不是很理解），隨後即上網查， 不搜不知道， 一搜嚇一跳。這跟書本的尾遞歸不太一樣啊。。。</p>
 <p>但是在百度百科是這樣定義的：</p>
 <h3 id="百度百科定義"><a href="#百度百科定義" class="headerlink" title="百度百科定義"></a>百度百科定義</h3><p><strong>“如果一個函數中所有遞歸形式的調用都出現在函數的末尾，我們稱這個遞歸函數是尾遞歸的。當遞歸調用時整個函數體最後執行的語句且他的返回值不屬於表達式的一部分時，這個遞歸調用就是尾遞歸。尾遞歸函數的特點是在回歸過程中不用做任何操作，這個特性很重要，因為大多數現待的編譯器會利用這種特性點自動生成優化的代碼”</strong></p>
 <p>(又是另一個觀點啊， 對於我這種理解能力差的初學者真是想不通) 示例代碼如下：</p>
@@ -239,15 +239,15 @@
 <p>沒開編譯優化：</p>
 <p><img src="http://opkl2tvjd.bkt.clouddn.com/not_o2.png" alt="沒開編譯優化" title="沒開編譯優化"></p>
 <p>但如果開優化的話： <code>gcc -Wall -O2 factorial_tail.c</code>， 上面的程序最後就能正常運行。</p>
-<p>開了-O2 編譯優化:</p>
+<p>開了<code>-O2</code> 編譯優化:</p>
 <p><img src="http://opkl2tvjd.bkt.clouddn.com/02.png" alt="開了 -O2 編譯優化" title="開了 -O2 編譯優化"></p>
 <p><strong>這裡面的原因就在於，尾遞歸的寫法只是具備了使用當前函數在調用下一個函數前把當前占有的棧銷毀，但是會不會真的這樣做，具體要看編譯器是否這樣做，如果在語言層面上，沒有規定要優化這種為調用，那編譯器就可以有自己的選擇來做不同的實現，在這種情況下，尾遞歸就不能一定解決一般遞歸的問題。</strong></p>
 <p>我們可以先看看上面的例子在開優化與未開優化的情況，編譯出來的彙編代碼有設麼不同，首先是沒開優化編譯出來factorial_tail.c 的匯編代碼 </p>
 <p><img src="http://opkl2tvjd.bkt.clouddn.com/not_no2s.png" alt="沒開優化彙編" title="沒開優化彙編"></p>
-<p><strong>注意上面 tail_func 函數中的 call 語句， call 指令就是直接進行了函數調用，它會先壓棧，然後再 jmp 去 tail_func， 而當前額棧還在用！就是說，尾遞歸的作用沒有發揮。</strong></p>
+<p><strong>注意上面 <code>tail_func</code> 函數中的 <code>call</code> 語句， call 指令就是直接進行了函數調用，它會先壓棧，然後再 <code>jmp</code> 去 <code>tail_func</code>， 而當前額棧還在用！就是說，尾遞歸的作用沒有發揮。</strong></p>
 <p>我們在看看開了優化得到的彙編:</p>
 <p><img src="http://opkl2tvjd.bkt.clouddn.com/o2eds.png" alt="開了優化彙編" title="開了優化彙編"></p>
-<p>注意 tail_func 函數彙編中 imull %ecx, %eax 和 jne .L3。tail_func() 裡面沒有函數調用！它只是把當前函數的第二個參數改了一下，直接就又跳到函數開始的地方。此處的實現本質其實就是： 下一個函數調用繼續延用了當前的棧!</p>
+<p>注意 <code>tail_func</code> 函數彙編中 <code>imull %ecx, %eax</code> 和 <code>jne .L3</code>。<code>tail_func()</code> 裡面沒有函數調用！它只是把當前函數的第二個參數改了一下，直接就又跳到函數開始的地方。此處的實現本質其實就是： 下一個函數調用繼續延用了當前的棧!</p>
 <p>這就是尾遞歸所能帶來的效果： 控制棧的增長，且減小壓棧，程序運行的效率也可能更高。。</p>
 <h2 id="結束語"><a href="#結束語" class="headerlink" title="結束語"></a>結束語</h2><p>好了， 以上就是《c primer plus》 和 網上所說的尾遞歸（是不一樣的），本人更傾向于後者， 覺得可通過編譯優化提高效率。</p>
 <p>還有的就是，上面的彙編代碼小聰是看不懂了，只是當個搬運工。。</p>
@@ -475,7 +475,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,15 +495,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
              
               <li class="article-tag-list-item">
