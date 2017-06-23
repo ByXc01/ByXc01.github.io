@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 尾遞歸 | ByXc&#39;s blog</title>
+  <title>編譯 gcc7.1.0 | ByXc&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Golas determine what you are going to be">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ByXc&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/尾遞歸/index.html">
+  <meta name="description" content="下載依賴包最近在看博客的時候無意中看到 gcc 7.1.0 出來了， 就想更新一下。 因之前我也嘗試編譯了 gcc 6.3.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="編譯 gcc7.1.0">
+<meta property="og:url" content="http://yoursite.com/2017/06/23/compilation-gcc/compilation-gcc/index.html">
 <meta property="og:site_name" content="ByXc&#39;s blog">
-<meta property="og:description" content="Golas determine what you are going to be">
+<meta property="og:description" content="下載依賴包最近在看博客的時候無意中看到 gcc 7.1.0 出來了， 就想更新一下。 因之前我也嘗試編譯了 gcc 6.3.0">
+<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/2017-06-23%2004-07-21%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
+<meta property="og:updated_time" content="2017-06-23T11:43:04.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ByXc&#39;s blog">
-<meta name="twitter:description" content="Golas determine what you are going to be">
+<meta name="twitter:title" content="編譯 gcc7.1.0">
+<meta name="twitter:description" content="下載依賴包最近在看博客的時候無意中看到 gcc 7.1.0 出來了， 就想更新一下。 因之前我也嘗試編譯了 gcc 6.3.0">
+<meta name="twitter:image" content="http://opkl2tvjd.bkt.clouddn.com/2017-06-23%2004-07-21%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png">
   
     <link rel="alternative" href="/atom.xml" title="ByXc&#39;s blog" type="application/atom+xml">
   
@@ -168,60 +171,155 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-compilation-gcc/compilation-gcc" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/26/tail-recursion/index/" class="archive-article-date">
-  	<time datetime="2017-05-26T12:43:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/26/tail-recursion/index/">關於尾遞歸的問題</a>
+    <h1 class="article-title" itemprop="name">
+      編譯 gcc7.1.0
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">尾遞歸</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2017/06/23/compilation-gcc/compilation-gcc/" class="archive-article-date">
+  	<time datetime="2017-06-23T08:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下載依賴包"><a href="#下載依賴包" class="headerlink" title="下載依賴包"></a>下載依賴包</h2><p>最近在看博客的時候無意中看到 <code>gcc 7.1.0</code> 出來了， 就想更新一下。 因之前我也嘗試編譯了 <code>gcc 6.3.0</code></p>
+<a id="more"></a>
+<p>我是在<a href="https://mirrors.tuna.tsinghua.edu.cn/" title="清華大學鏡像源" target="_blank" rel="external">清華大學鏡像源</a> 下載了 gmp、mpfr、mpc、gcc的包。因第一次是直接在下在<a href="ftp:gnu.org/gnu/" title="gnu官網" target="_blank" rel="external">gnu官網</a>，下載實在是太慢了。 而且上次編譯的時候還是直接是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./download_prerequisites</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure></p>
+<p>因爲這樣還要下載依賴包。 所以這次嘗試一下離線編譯， 自己下載依賴包編譯。 安裝過程我就不寫了， 因本人也是初學者。 感謝搜索引擎和<a href="http://www.csdn.net/" title="csdn" target="_blank" rel="external">csdn</a>， 都是自己找的教程。 在羣問人屢招忽視， 靠人不如靠己啊。</p>
+<h2 id="編譯完後"><a href="#編譯完後" class="headerlink" title="編譯完後"></a>編譯完後</h2><p><code>make</code> 過程很久, 中間也有出錯過， 經羣又提醒再次編譯， 而且我還在虛擬機裏面裝的。裝了兩個版本的 <code>gcc</code> 了，都沒有一次直接通過的。 裝完後在<a href="https://github.com/tvaneerd/cpp17_in_TTs/blob/master/ALL_IN_ONE.md" title="github" target="_blank" rel="external">github</a>找了一個 <code>c++17</code> 特性的代碼測試了一下， 因本人還不會 <code>c++</code> 拷貝一個完整簡單的。代碼如下:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* c++17 feature */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Foo</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> str = <span class="string">"wrold"</span>;</div><div class="line">    ~Foo()</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;str&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">auto</span> [i, s] = Foo();</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"hello "</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    s = <span class="string">"structured bindings"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="最後附上截圖"><a href="#最後附上截圖" class="headerlink" title="最後附上截圖"></a>最後附上截圖</h2><p>編譯命令 <code>g++ -std=c++1z -Wall source_file.c -o program.out&#39; 其中的</code>-std=c++1z<code>是因編譯的是</code>c++17` 特性的程序。</p>
+<p><img src="http://opkl2tvjd.bkt.clouddn.com/2017-06-23%2004-07-21%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png" alt="source_file" title="source"></p>
 
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/06/23/compilation-gcc/compilation-gcc/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/23/my-life/my-life/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          My Life
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/05/29/gets-s/gets_s/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C11 gets_s() 函數</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -244,9 +342,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
