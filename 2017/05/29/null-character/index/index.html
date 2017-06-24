@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/null_strin3.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/character_array.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/null_string4.png">
-<meta property="og:updated_time" content="2017-05-29T11:22:50.846Z">
+<meta property="og:updated_time" content="2017-06-24T15:30:35.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串和空字符">
 <meta name="twitter:description" content="提起空字符大家應該都不陌生，在 c 語言中， 沒有專門的字符串變量， 沒有 string 類型， 通常就用一個字符數組來存放一個字符串。">
@@ -198,7 +198,7 @@
       
         <h2 id="提起空字符大家應該都不陌生，在-c-語言中，-沒有專門的字符串變量，-沒有-string-類型，-通常就用一個字符數組來存放一個字符串。"><a href="#提起空字符大家應該都不陌生，在-c-語言中，-沒有專門的字符串變量，-沒有-string-類型，-通常就用一個字符數組來存放一個字符串。" class="headerlink" title="提起空字符大家應該都不陌生，在 c 語言中， 沒有專門的字符串變量， 沒有 string 類型， 通常就用一個字符數組來存放一個字符串。"></a>提起空字符大家應該都不陌生，在 c 語言中， 沒有專門的字符串變量， 沒有 string 類型， 通常就用一個字符數組來存放一個字符串。</h2><a id="more"></a>
 <p>然而為什麼今天要專門寫一篇博客呢？ 原因是前不久第一次遇到一個關於空字符 <code>\0</code> 的 bug 。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* File: reverse.c</span></div><div class="line"> * Author: ByXc</div><div class="line"> * About: reverse</div><div class="line"> * Version: 1.0</div><div class="line"> * Compilation: gcc 5.3.0 for MinGw</div><div class="line"> * Date: 20170513</div><div class="line"> * Github: ByXc01</div><div class="line"> * Blog: http://ByXc01.github.io</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i_count;</div><div class="line">	<span class="keyword">char</span> ch_string[<span class="number">40</span>];</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Please enter a string:"</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, ch_string);</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (i_count = <span class="built_in">strlen</span>(ch_string); i_count &gt;= <span class="number">0</span>; i_count--)</div><div class="line">	    <span class="built_in">printf</span>(<span class="string">"%c"</span>, ch_string[i_count - <span class="number">1</span>]);        <span class="comment">//i_count - 1, 是因为字符串后有一個空字符 \0 (ASCII = 0)</span></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"\nThe all! "</span>);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">   <span class="comment">/* 關於空字符的問題：在minGW,codeblocks, visual studio 2015。輸出的是一個像空格一樣的字符，</span></div><div class="line">    * 在手機c4droid, cide, aide, c4droid toolchain 的gcc5.2.0輸出空字符都是不可見得。。</div><div class="line">    * 其他其他編譯器就不清楚了。。  so， 看情況是否使用i_count - 1</div><div class="line">    */</div></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* File: reverse.c</span></div><div class="line"> * Author: ByXc</div><div class="line"> * About: reverse</div><div class="line"> * Version: 1.0</div><div class="line"> * Compiler: gcc 5.1.0 for MinGw</div><div class="line"> * Date: 20170513</div><div class="line"> * Github: ByXc01</div><div class="line"> * Blog: http://ByXc01.github.io</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">int</span> i_count;</div><div class="line">	<span class="keyword">char</span> ch_string[<span class="number">40</span>];</div><div class="line"></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"Please enter a string:"</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>, ch_string);</div><div class="line"></div><div class="line">	<span class="keyword">for</span> (i_count = <span class="built_in">strlen</span>(ch_string); i_count &gt;= <span class="number">0</span>; i_count--)</div><div class="line">	    <span class="built_in">printf</span>(<span class="string">"%c"</span>, ch_string[i_count - <span class="number">1</span>]);        <span class="comment">//i_count - 1, 是因为字符串后有一個空字符 \0 (ASCII = 0)</span></div><div class="line">	<span class="built_in">printf</span>(<span class="string">"\nThe all! "</span>);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">   <span class="comment">/* 關於空字符的問題：在minGW,codeblocks, visual studio 2015。輸出的是一個像空格一樣的字符，</span></div><div class="line">    * 在手機c4droid, cide, aide, c4droid toolchain 的gcc5.2.0輸出空字符都是不可見得。。</div><div class="line">    * 其他其他編譯器就不清楚了。。  so， 看情況是否使用i_count - 1</div><div class="line">    */</div></pre></td></tr></table></figure>
 <p>這個程序很簡單， 是 《<em>c primer plus</em>》 第六章的一道編程練習題， 輸入一個字符串， 程序將字符串倒序輸出。 剛開始我沒有用 <code>i_count - 1</code>， 覺得有點奇怪，怎麼倒序輸出的字符串有一個 <strong>“空格”</strong>， 輸出如下：</p>
 <p><img src="http://opkl2tvjd.bkt.clouddn.com/null_string.png" alt="空字符" title="空字符"></p>
 <p><strong>後來測試了幾個平台， 在 windows 環境下是會輸出一個類似格的字符， 為什麼說是類似呢？ <code>if (*(ch_string + 4) == &#39; &#39;)</code> 表達式為假。 在 Linux 環境下則輸出為不可見得（Windows 上用 msym2 輸出也是不可見的):</strong></p>
@@ -454,18 +454,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">空字符</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
@@ -474,7 +462,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">空字符</a>
               </li>
              
               <li class="article-tag-list-item">
