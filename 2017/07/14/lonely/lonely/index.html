@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | ByXc&#39;s blog</title>
+  <title>lonely | ByXc&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Golas determine what you are going to be">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ByXc&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="bug最近一直看文件輸入/輸出，對流和緩衝區還不是很理解。然後去網上找setvbuf()函數的詳細的用法，無意中看到一段代碼，如下: 12345678910111213141516/* test1.c */#include &amp;lt;stdio.h&amp;gt;char outbuf[512];               // 全局變量int main(void)&amp;#123;    setbuf(std">
+<meta name="keywords" content="随笔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lonely">
+<meta property="og:url" content="http://yoursite.com/2017/07/14/lonely/lonely/index.html">
 <meta property="og:site_name" content="ByXc&#39;s blog">
-<meta property="og:description" content="Golas determine what you are going to be">
+<meta property="og:description" content="bug最近一直看文件輸入/輸出，對流和緩衝區還不是很理解。然後去網上找setvbuf()函數的詳細的用法，無意中看到一段代碼，如下: 12345678910111213141516/* test1.c */#include &amp;lt;stdio.h&amp;gt;char outbuf[512];               // 全局變量int main(void)&amp;#123;    setbuf(std">
+<meta property="og:updated_time" content="2017-07-14T14:49:02.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ByXc&#39;s blog">
-<meta name="twitter:description" content="Golas determine what you are going to be">
+<meta name="twitter:title" content="lonely">
+<meta name="twitter:description" content="bug最近一直看文件輸入/輸出，對流和緩衝區還不是很理解。然後去網上找setvbuf()函數的詳細的用法，無意中看到一段代碼，如下: 12345678910111213141516/* test1.c */#include &amp;lt;stdio.h&amp;gt;char outbuf[512];               // 全局變量int main(void)&amp;#123;    setbuf(std">
   
     <link rel="alternative" href="/atom.xml" title="ByXc&#39;s blog" type="application/atom+xml">
   
@@ -168,36 +170,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-lonely/lonely" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      lonely
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/14/lonely/lonely/" class="archive-article-date">
+
+        
+        <a href="/2017/07/14/lonely/lonely/" class="archive-article-date">
   	<time datetime="2017-07-14T12:23:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-14</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/14/lonely/lonely/">lonely</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><p>最近一直看<strong>文件輸入/輸出</strong>，對<strong>流</strong>和<strong>緩衝區</strong>還不是很理解。然後去網上找<code>setvbuf()</code>函數的詳細的用法，無意中看到一段代碼，如下:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* test1.c */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">char</span> outbuf[<span class="number">512</span>];               <span class="comment">// 全局變量</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    setbuf(<span class="built_in">stdout</span>, bufout);     <span class="comment">// 把緩衝區與輸出流相連</span></div><div class="line">    </div><div class="line">    <span class="built_in">puts</span>(<span class="string">"This is a test of buffer output."</span>);</div><div class="line">    <span class="built_in">puts</span>(outbuf);</div><div class="line">    </div><div class="line">    fflush(<span class="built_in">stdout</span>);             <span class="comment">// 感覺在這裏可有可無</span></div><div class="line">    <span class="built_in">puts</span>(outbuf);               <span class="comment">// 輸出</span></div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>輸出如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">This is a test of buffer output.</div><div class="line">This is a test of buffer output.</div><div class="line"></div><div class="line">This is a test of buffer output.</div><div class="line">This is a test of buffer output.</div></pre></td></tr></table></figure>
+<p>程序很簡單， 但是我改了一下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* test2.c */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">char</span> outbuf[<span class="number">512</span>];</div><div class="line"></div><div class="line">	setvbuf(<span class="built_in">stdout</span>, outbuf, _IOFBF, <span class="number">512</span>);</div><div class="line"></div><div class="line">	<span class="built_in">puts</span>(<span class="string">"This is a test of buffer output."</span>);</div><div class="line">	<span class="built_in">puts</span>(outbuf);</div><div class="line"></div><div class="line">	fflush(<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">puts</span>(outbuf);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>輸出如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">This is a test of buffer output.</div><div class="line">This is a test of buffer output.</div><div class="line"></div><div class="line">***********</div><div class="line">*******</div></pre></td></tr></table></figure></p>
+<p>星號部分表示亂碼（或與<strong>test1.c</strong>輸出一樣，是不確定的)。這是爲什麼呢？後來我發現如果<code>outbuf</code>具有<em>靜態儲存期</em>時輸出卻與<strong>test1.c</strong>輸出一樣。自己能力不足去解釋這個問題（網上也沒有找到這樣的問題）， 在平時很活躍的羣問也沒人理。有人說在<code>clang</code>編譯與<strong>test1.c</strong>輸出一樣，我也測試在<strong>tcc</strong>編譯輸出也和<strong>test1.c</strong>一樣，我以爲是編譯器問題。</p>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><p>後來實在沒辦法， 又厚着臉皮去問<strong>塵殤葉</strong>前輩。。後來才知道：</p>
+<hr>
+<p>因爲最後一個<code>puts(outbuf)</code>只是將<code>outbuf</code>的內容拷貝到<code>outbuf</code>512個字節中的某一處。當<code>main()</code>函數返回後，才會向終端定義字符。因爲<code>mian()</code>函數返回後會繼續執行一段c庫中的一些代碼。</p>
+<hr>
+<p>那就是說<code>main(()</code>函數執行完，但程序並沒結束， 接着<code>main()</code>函數棧中的自動變量(<em>outbuf</em>)會被系統回收。如果被回收了很有可能亂碼或<strong>Segmentation fault</strong>。這就解釋了如果<code>outbuf</code>具有靜態儲存期(程序結束才被系統回收)就能像<strong>test1.c</strong>輸出一樣。如果在程序的末尾加上<code>fflush(stdout)</code>也能有同樣的效果。因把<strong>緩衝區</strong>刷新。將緩衝區中所有爲寫入的數據被發送到<code>stdout</code>。其實也有關與編譯器， 不同的編譯器編譯出來的匯編。</p>
+<h2 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h2><p>謝謝<strong>塵殤葉</strong>的耐心解答。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -209,361 +245,89 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/07/14/lonely/lonely/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/23/my-life/my-life/" class="archive-article-date">
-  	<time datetime="2017-06-23T11:49:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/23/my-life/my-life/">My Life</a>
-    </h1>
+  
+    <a href="/2017/06/23/my-life/my-life/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">My Life</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/23/compilation-gcc/compilation-gcc/" class="archive-article-date">
-  	<time datetime="2017-06-23T08:49:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/23/compilation-gcc/compilation-gcc/">編譯 gcc7.1.0</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gcc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/29/gets-s/gets_s/" class="archive-article-date">
-  	<time datetime="2017-05-29T10:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/29/gets-s/gets_s/">C11 gets_s() 函數</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">gets_s</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/29/null-character/index/" class="archive-article-date">
-  	<time datetime="2017-05-29T09:52:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/29/null-character/index/">字符串和空字符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">空字符</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/27/debug/debug/" class="archive-article-date">
-  	<time datetime="2017-05-26T17:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/27/debug/debug/">debug</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/26/programme-exercise/index/" class="archive-article-date">
-  	<time datetime="2017-05-26T13:22:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/26/programme-exercise/index/">programme_exercise</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/26/tail-recursion/index/" class="archive-article-date">
-  	<time datetime="2017-05-26T12:43:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/26/tail-recursion/index/">關於尾遞歸的問題</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">尾遞歸</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/06/hello-byxc/hello-byxc/" class="archive-article-date">
-  	<time datetime="2017-05-06T08:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/06/hello-byxc/hello-byxc/">ByXc&#39;s blog</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/06/hello-world/hello-world/" class="archive-article-date">
-  	<time datetime="2017-05-06T05:14:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/06/hello-world/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hello World</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -586,8 +350,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
