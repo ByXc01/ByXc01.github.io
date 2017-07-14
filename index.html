@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><p>最近一直看<strong>文件輸入/輸出</strong>，對<strong>流</strong>和<strong>緩衝區</strong>還不是很理解。然後去網上找<code>setvbuf()</code>函數的詳細的用法，無意中看到一段代碼，如下:</p>
+        <h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><p>最近一直在看<strong>文件輸入/輸出</strong>，對<strong>流</strong>和<strong>緩衝區</strong>還不是很理解。然後去網上找<code>setvbuf()</code>函數的詳細的用法，無意中看到一段代碼，如下:</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* test1.c */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">char</span> outbuf[<span class="number">512</span>];               <span class="comment">// 全局變量</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    setbuf(<span class="built_in">stdout</span>, bufout);     <span class="comment">// 把緩衝區與輸出流相連</span></div><div class="line">    </div><div class="line">    <span class="built_in">puts</span>(<span class="string">"This is a test of buffer output."</span>);</div><div class="line">    <span class="built_in">puts</span>(outbuf);</div><div class="line">    </div><div class="line">    fflush(<span class="built_in">stdout</span>);             <span class="comment">// 感覺在這裏可有可無</span></div><div class="line">    <span class="built_in">puts</span>(outbuf);               <span class="comment">// 輸出</span></div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2017/07/14/lonely/lonely/#more">more >></a>
@@ -884,31 +884,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">life</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -916,7 +896,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">life</a>
+                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hello</a>
               </li>
             
             <div class="clearfix"></div>
