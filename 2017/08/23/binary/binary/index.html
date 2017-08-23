@@ -17,7 +17,8 @@
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/while.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/while2.png">
 <meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/limit1.png">
-<meta property="og:updated_time" content="2017-08-23T12:50:11.910Z">
+<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/limit2.png">
+<meta property="og:updated_time" content="2017-08-23T13:22:12.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="binary">
 <meta name="twitter:description" content="原碼、反碼、補碼此博客部分轉載 计算机为什么选用二进制补码（1）—原码、反码、补码 1.總的概念(1): 數在計算機中是以二進制形式表示的；(2): 數分為有符號數和無符號數；(3): 原碼、反碼、補碼都是有定點數的表示方法；(4): 無符號數全部按正數處理；(5): 一個有符號定點數的最高位，0是正，1是負；">
@@ -206,55 +207,15 @@
 <p>-100 0110(負數)<br>原碼： 1100 0110<br>反碼： 1011 1001<br>補碼： 1011 1010</p>
 <h2 id="4-幾個特殊定義："><a href="#4-幾個特殊定義：" class="headerlink" title="4.幾個特殊定義："></a>4.幾個特殊定義：</h2><p>(1): n位補碼能表示的範圍：有符號數是 -2^(n-1) 到 2^(n-1)-1。無符號是 0 到 2^(n-1)。<br>(2): -128 的補碼是 1000 0000, -128 + 1 = -127，(-127)補 = 1000 0001 = 1000 0000 + 0000 0001 符合運算規則。<br>(3): 0 的補碼 0000 0000</p>
 <h2 id="既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼"><a href="#既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼" class="headerlink" title="既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼"></a>既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼</h2><p>其實也沒有學會，因為原碼、反碼和補碼都有公式。反正我是沒看明白。以前老師也沒講公式上來就是說：原碼符號位0表示正，1表示負。反碼就是除了符號位不變， 1變0,0變1。補碼就是反碼+1。</p>
-<h3 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h3><p>本人學C語言是看書入門的， c primer plus是一本很好的入門書。書中第六章的“6.2.1 終止 while 循環”有個問題就是一個變量自減特定次后會從負數變成正數，讓後終止循環。<br><img src="http://opkl2tvjd.bkt.clouddn.com/while.png" alt="c primer plus" title="while"><br>測試了一下， 果真如此。代碼如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// while.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="keyword">signed</span> <span class="keyword">char</span> index = <span class="number">1</span>;      <span class="comment">// 使用 char ， 使用其它整數類型迭代次數較多。</span></div><div class="line"></div><div class="line">   	<span class="keyword">while</span> (--index &lt; <span class="number">5</span>)</div><div class="line">       	<span class="built_in">printf</span>(<span class="string">"%d "</span>, index);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"\n\nlast value: %d\n"</span>, index);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h3><p>本人學C語言是看書入門的， c primer plus是一本很好的入門書。書中第六章的“6.2.1 終止 while 循環”有個問題就是一個變量自減特定次后會從負數變成正數，讓後終止循環。<br><img src="http://opkl2tvjd.bkt.clouddn.com/while.png" alt="c primer plus" title="while"><br>測試了一下， 果真如此。代碼如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// while.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="keyword">signed</span> <span class="keyword">char</span> index = <span class="number">1</span>;      <span class="comment">// 使用 char ， 使用其它整數類型迭代次數較多。</span></div><div class="line"></div><div class="line">   	<span class="keyword">while</span> (--index &lt; <span class="number">5</span>)</div><div class="line">       	<span class="built_in">printf</span>(<span class="string">"%d "</span>, index);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"\n\nlast value: %d\n"</span>, index);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>輸出如下：<br><img src="http://opkl2tvjd.bkt.clouddn.com/while2.png" alt="program" title="while test"><br><strong>很明顯迭代的退出<code>index</code>的值是 127。 127 &lt; 5 表達式的值為0。<code>signed char</code>一字節（八位），從左往右第一位是符號位。負數用補碼存儲。範圍是 -2^(8-1) ~ 2^(8-1)-1， 即 -128 ~ 127。</strong><br>很好， 有點眉頭了。</p>
-<h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><p>下面我們來看一段代碼:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// limit.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="keyword">signed</span> <span class="keyword">char</span> num = <span class="number">-1</span>;</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"signed: %hhd, unsigned: %hhu\n"</span>, num, num);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>輸出如下：<br><img src="http://opkl2tvjd.bkt.clouddn.com/limit1.png" alt="limit" title="ByXc"><br>由例1已知， -1 的補碼是 1111 1111。如果是按有符號解析的話，第一位是符號位（為負），其餘是數值位。所以正是-1。但如果是無符號為的話，八位全是數值位，即是255。</p>
-<p>還沒完咧， 繼續往下看：<br>``` c<br>    // limit2.c</p>
-<pre><code>#include &lt;stdio.h&gt;
-#include &lt;limits.h&gt;     // 提供明示常量
-
-#define UCHAR_MIN 0     // 因為無符號最小值就是0， limits.h 頭文件里沒有
-#define UINT_MIN 0
-
-int main(void)
-{
-    printf(&quot;UCHAR_MAX = %hhu, UCHAR_MAX + 1 = %hhu\n&quot;, UCHAR_MAX, UCHAR_MAX + 1);
-    printf(&quot;UCHAR_MIN = %hhu, UCHAR_MIN - 1 = %hhu\n&quot;, UCHAR_MIN, UCHAR_MIN - 1);
-    printf(&quot;CHAR_MAX = %hhd, CHAR_MAX + 1 = %hhd\n&quot;, CHAR_MAX, CHAR_MAX + 1);
-    printf(&quot;CHAR_MIN = %hhd, CHAR_MIN - 1 = %hhd\n&quot;, CHAR_MIN, CHAR_MIN - 1);
-    putchar(&apos;\n&apos;);
-
-    printf(&quot;UINT_MAX = %u, UINT_MAX + 1 = %u\n&quot;, UINT_MAX, UINT_MAX + 1);
-    printf(&quot;UINT_MIN = %u, UINT_MIN - 1 = %u\n&quot;, UINT_MIN, UINT_MIN - 1);
-    printf(&quot;INT_MAX = %d, INT_MAX + 1 = %d\n&quot;, INT_MAX, INT_MAX + 1);
-    printf(&quot;INT_MIN = %d, INT_MIN - 1 = %d\n&quot;, INT_MIN, INT_MAX - 1);
-
-    return 0;
-}
-</code></pre><p><code>``:c
-輸出以下：
-![limit2](http://opkl2tvjd.bkt.clouddn.com/limit2.png &quot;ByXc&quot;)
-好吧，終於警告了。
-我只把</code>char`類型的解釋一下， 其它的整數類型也一樣，就不作重複解釋了。<br>以下是本人的瞎解釋，歡迎指出錯誤。</p>
-<p>1.正溢出。 八位無符號最大值是255。<br>      1111 1111 [+255]</p>
-<ul>
-<li>0000 0001 [+1]<br>= (1) 0000 0000 [0]<br>符號位溢出。</li>
-</ul>
-<p>2.負溢出。八位無符號。<br>     0000 0000 [0]</p>
-<ul>
-<li>0000 0001 [1]<br>=    1111 1111 [+255]</li>
-</ul>
-<p>3.正溢出。有符號八位最大值是127。<br>  0111 1111 [+127]</p>
-<ul>
-<li>0000 0001 [+1]<br>= 1000 0000 (補碼）[-128]<br>符號位溢出</li>
-</ul>
-<p>4.負溢出。有符號八位最小值是-128。補碼為: 1000 0000。<br>   1000 0000 （補碼)[-128]</p>
-<ul>
-<li>0000 0001 [+1]<br>=  0111 1111 [+127]</li>
-</ul>
+<h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><p>下面我們來看一段代碼:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// limit.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="keyword">signed</span> <span class="keyword">char</span> num = <span class="number">-1</span>;</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"signed: %hhd, unsigned: %hhu\n"</span>, num, num);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>輸出如下：<br><img src="http://opkl2tvjd.bkt.clouddn.com/limit1.png" alt="limit" title="ByXc"><br>由例1已知， -1 的補碼是 1111 1111。如果是按有符號解析的話，第一位是符號位（為負），其餘是數值位。所以正是-1。但如果是無符號為的話，八位全是數值位，即是255。<br>還沒完咧， 繼續往下看：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// limit2.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;limits.h&gt;     // 提供明示常量</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> UCHAR_MIN 0     <span class="comment">// 因為無符號最小值就是0， limits.h 頭文件里沒有</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> UINT_MIN 0</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"UCHAR_MAX = %hhu, UCHAR_MAX + 1 = %hhu\n"</span>, UCHAR_MAX, UCHAR_MAX + <span class="number">1</span>);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"UCHAR_MIN = %hhu, UCHAR_MIN - 1 = %hhu\n"</span>, UCHAR_MIN, UCHAR_MIN - <span class="number">1</span>);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"CHAR_MAX = %hhd, CHAR_MAX + 1 = %hhd\n"</span>, CHAR_MAX, CHAR_MAX + <span class="number">1</span>);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"CHAR_MIN = %hhd, CHAR_MIN - 1 = %hhd\n"</span>, CHAR_MIN, CHAR_MIN - <span class="number">1</span>);</div><div class="line">   	<span class="built_in">putchar</span>(<span class="string">'\n'</span>);</div><div class="line"></div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"UINT_MAX = %u, UINT_MAX + 1 = %u\n"</span>, UINT_MAX, UINT_MAX + <span class="number">1</span>);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"UINT_MIN = %u, UINT_MIN - 1 = %u\n"</span>, UINT_MIN, UINT_MIN - <span class="number">1</span>);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"INT_MAX = %d, INT_MAX + 1 = %d\n"</span>, INT_MAX, INT_MAX + <span class="number">1</span>);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"INT_MIN = %d, INT_MIN - 1 = %d\n"</span>, INT_MIN, INT_MAX - <span class="number">1</span>);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>輸出以下：<br><img src="http://opkl2tvjd.bkt.clouddn.com/limit2.png" alt="limit2" title="ByXc"><br>好吧，終於警告了。<br>我只把<code>char</code>類型的解釋一下， 其它的整數類型也一樣，就不作重複解釋了。以下是本人的瞎解釋，歡迎指出錯誤。</p>
+<p><strong>1.正溢出。 八位無符號最大值是255。</strong><br>      1111 1111 [+255]<br>+     0000 0001 [+1]<br>\= (1) 0000 0000 [0]<br>符號位溢出。</p>
+<p><strong>2.負溢出。八位無符號。</strong><br>     0000 0000 [0]<br>-    0000 0001 [1]<br>\=    1111 1111 [+255]</p>
+<p><strong>3.正溢出。有符號八位最大值是127。</strong><br>  0111 1111 [+127]<br>+ 0000 0001 [+1]<br>\= 1000 0000 (補碼）[-128]<br>符號位溢出</p>
+<p><strong>4.負溢出。有符號八位最小值是-128。補碼為: 1000 0000。</strong><br>   1000 0000 （補碼)[-128]<br>-  0000 0001 [+1]<br>\=  0111 1111 [+127]</p>
 <p>postscript:以上的代碼輸出可能不是所有的機器上都是一樣。因為本人剛看到了十五章，將現所學的進行解答。</p>
 <h2 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h2><p>唉，不說了， 繼續研究二進制浮點數。</p>
 
@@ -464,7 +425,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">life</a>
+                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,11 +437,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">尾遞歸</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
+                <a href="javascript:void(0)" class="js-tag color1">hello</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,15 +445,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">life</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
             
             <div class="clearfix"></div>
