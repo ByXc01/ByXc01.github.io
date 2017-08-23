@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ByXc&#39;s blog | ByXc&#39;s blog</title>
+  <title>binary | ByXc&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hello , Welcome to ByXc’s blog.">
-<meta name="keywords" content="hello">
+  <meta name="description" content="原碼、反碼、補碼此博客部分轉載 计算机为什么选用二进制补码（1）—原码、反码、补码 1.總的概念(1): 數在計算機中是以二進制形式表示的；(2): 數分為有符號數和無符號數；(3): 原碼、反碼、補碼都是有定點數的表示方法；(4): 無符號數全部按正數處理；(5): 一個有符號定點數的最高位，0是正，1是負；">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ByXc&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/06/hello-byxc/hello-byxc/index.html">
+<meta property="og:title" content="binary">
+<meta property="og:url" content="http://yoursite.com/2017/08/23/binary/binary/index.html">
 <meta property="og:site_name" content="ByXc&#39;s blog">
-<meta property="og:description" content="Hello , Welcome to ByXc’s blog.">
-<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/17-5-7/94556521-file_1494140192949_4bbe.jpg">
-<meta property="og:updated_time" content="2017-05-26T16:44:47.781Z">
+<meta property="og:description" content="原碼、反碼、補碼此博客部分轉載 计算机为什么选用二进制补码（1）—原码、反码、补码 1.總的概念(1): 數在計算機中是以二進制形式表示的；(2): 數分為有符號數和無符號數；(3): 原碼、反碼、補碼都是有定點數的表示方法；(4): 無符號數全部按正數處理；(5): 一個有符號定點數的最高位，0是正，1是負；">
+<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/while.png">
+<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/while2.png">
+<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/limit1.png">
+<meta property="og:updated_time" content="2017-08-23T12:50:11.910Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ByXc&#39;s blog">
-<meta name="twitter:description" content="Hello , Welcome to ByXc’s blog.">
-<meta name="twitter:image" content="http://opkl2tvjd.bkt.clouddn.com/17-5-7/94556521-file_1494140192949_4bbe.jpg">
+<meta name="twitter:title" content="binary">
+<meta name="twitter:description" content="原碼、反碼、補碼此博客部分轉載 计算机为什么选用二进制补码（1）—原码、反码、补码 1.總的概念(1): 數在計算機中是以二進制形式表示的；(2): 數分為有符號數和無符號數；(3): 原碼、反碼、補碼都是有定點數的表示方法；(4): 無符號數全部按正數處理；(5): 一個有符號定點數的最高位，0是正，1是負；">
+<meta name="twitter:image" content="http://opkl2tvjd.bkt.clouddn.com/while.png">
   
     <link rel="alternative" href="/atom.xml" title="ByXc&#39;s blog" type="application/atom+xml">
   
@@ -172,41 +173,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-byxc/hello-byxc" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-binary/binary" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      ByXc&#39;s blog
+      binary
     </h1>
   
 
         
-        <a href="/2017/05/06/hello-byxc/hello-byxc/" class="archive-article-date">
-  	<time datetime="2017-05-06T08:55:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
+        <a href="/2017/08/23/binary/binary/" class="archive-article-date">
+  	<time datetime="2017-08-23T12:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Hello-Welcome-to-ByXc’s-blog"><a href="#Hello-Welcome-to-ByXc’s-blog" class="headerlink" title="Hello , Welcome to ByXc’s blog."></a>Hello , Welcome to ByXc’s blog.</h2><a id="more"></a>
+        <h1 id="原碼、反碼、補碼"><a href="#原碼、反碼、補碼" class="headerlink" title="原碼、反碼、補碼"></a>原碼、反碼、補碼</h1><p>此博客部分轉載 <a href="http://blog.csdn.net/hittata/article/details/9108323" title="千年的塔" target="_blank" rel="external">计算机为什么选用二进制补码（1）—原码、反码、补码</a></p>
+<h2 id="1-總的概念"><a href="#1-總的概念" class="headerlink" title="1.總的概念"></a>1.總的概念</h2><p>(1): 數在計算機中是以二進制形式表示的；<br>(2): 數分為有符號數和無符號數；<br>(3): 原碼、反碼、補碼都是有定點數的表示方法；<br>(4): 無符號數全部按正數處理；<br>(5): 一個有符號定點數的最高位，0是正，1是負；<br><a id="more"></a></p>
+<h2 id="2-反碼，補碼定義"><a href="#2-反碼，補碼定義" class="headerlink" title="2.反碼，補碼定義"></a>2.反碼，補碼定義</h2><p><strong>正數：</strong><br>原碼 = 反碼 = 補碼</p>
+<p><strong>負數：</strong><br>原碼；<br>反碼 = 其原碼除符號位之外的各位求反；<br>補碼 = 反碼 + 1 （如果 + 1 之後又進位的， 要一直往前進位， 包括符號位；</p>
+<h2 id="3-運算示例"><a href="#3-運算示例" class="headerlink" title="3.運算示例"></a>3.運算示例</h2><p>(這裡按照一字節(byte)八位(Bit)表示)<br>正零： 0000 0000<br>負零： 1000 0000<br>其實這兩個數都是 0， 但它們的原碼卻有不同的表示。<br>但它們的補碼是一樣的， 都是 0000 0000。<br><strong>特別注意，如果 +1 之後有進位的， 要一直往前進位， 包括符號位!(這和反碼不同)</strong></p>
+<p>[1000 0000]補<br>= [1000 0000]反 + 1<br>= 1111 1111 + 1<br>= (1)0000 0000<br>= 0000 0000（最高位溢出了，符號位變成了0)</p>
+<h3 id="提一下補碼的兩個特性"><a href="#提一下補碼的兩個特性" class="headerlink" title="提一下補碼的兩個特性"></a>提一下補碼的兩個特性</h3><p><strong>(1): 負補碼轉原碼的方法是： 取補碼的反碼+1；</strong><br><strong>(2): 求補碼相反數的方法是： 反轉每一位(包括符號位，即0變1，1變0），然後加1。)；</strong><br>例1：<br>-1<br>（1000 0001）原碼<br>（1111 1110）反碼<br>（1111 1111）補碼<br>求（1111 1111）補碼表示的原碼。<br>（1111 1111）補碼<br>（1000 0000）反碼<br>（1000 0001）原碼</p>
+<p>例2：<br>由上面可知 -1 的補碼是 1111 1111，求 1111 1111 補碼的相反數。<br>（1111 1111）補碼<br>（0000 0000）取反<br>（0000 0001）+1</p>
+<h3 id="原碼和反碼的0都有兩種表示"><a href="#原碼和反碼的0都有兩種表示" class="headerlink" title="原碼和反碼的0都有兩種表示"></a>原碼和反碼的0都有兩種表示</h3><p>+0 = 0000 0001<br>-0 = 1000 0001<br>因此原碼和反碼表示的範圍都是是-127 ~ +127。<br><strong>但補碼的0只有一種表示，即 0000 0000。那麼補碼的表示範圍是-128 ~ +127</strong><br>當時本人一直是沒想明白：為什麼可以表示多一位，而且還是-128。<br>於是找到以下答案：<br>既然補碼表示0的是 0000 0000 那麼就多出一位，即: 1000 0000。其實這是一個規定， 這個補碼表示的是 -128。況且[1000 0000]也沒有相對應的原碼。</p>
+<h3 id="舉個栗子"><a href="#舉個栗子" class="headerlink" title="舉個栗子"></a>舉個栗子</h3><p>+100 0110(正數)<br>原碼: 0100 0110<br>反碼: 0100 0110<br>補碼: 0100 0110</p>
+<p>-100 0110(負數)<br>原碼： 1100 0110<br>反碼： 1011 1001<br>補碼： 1011 1010</p>
+<h2 id="4-幾個特殊定義："><a href="#4-幾個特殊定義：" class="headerlink" title="4.幾個特殊定義："></a>4.幾個特殊定義：</h2><p>(1): n位補碼能表示的範圍：有符號數是 -2^(n-1) 到 2^(n-1)-1。無符號是 0 到 2^(n-1)。<br>(2): -128 的補碼是 1000 0000, -128 + 1 = -127，(-127)補 = 1000 0001 = 1000 0000 + 0000 0001 符合運算規則。<br>(3): 0 的補碼 0000 0000</p>
+<h2 id="既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼"><a href="#既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼" class="headerlink" title="既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼"></a>既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼</h2><p>其實也沒有學會，因為原碼、反碼和補碼都有公式。反正我是沒看明白。以前老師也沒講公式上來就是說：原碼符號位0表示正，1表示負。反碼就是除了符號位不變， 1變0,0變1。補碼就是反碼+1。</p>
+<h3 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h3><p>本人學C語言是看書入門的， c primer plus是一本很好的入門書。書中第六章的“6.2.1 終止 while 循環”有個問題就是一個變量自減特定次后會從負數變成正數，讓後終止循環。<br><img src="http://opkl2tvjd.bkt.clouddn.com/while.png" alt="c primer plus" title="while"><br>測試了一下， 果真如此。代碼如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// while.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="keyword">signed</span> <span class="keyword">char</span> index = <span class="number">1</span>;      <span class="comment">// 使用 char ， 使用其它整數類型迭代次數較多。</span></div><div class="line"></div><div class="line">   	<span class="keyword">while</span> (--index &lt; <span class="number">5</span>)</div><div class="line">       	<span class="built_in">printf</span>(<span class="string">"%d "</span>, index);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"\n\nlast value: %d\n"</span>, index);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>輸出如下：<br><img src="http://opkl2tvjd.bkt.clouddn.com/while2.png" alt="program" title="while test"><br><strong>很明顯迭代的退出<code>index</code>的值是 127。 127 &lt; 5 表達式的值為0。<code>signed char</code>一字節（八位），從左往右第一位是符號位。負數用補碼存儲。範圍是 -2^(8-1) ~ 2^(8-1)-1， 即 -128 ~ 127。</strong><br>很好， 有點眉頭了。</p>
+<h2 id="溢出"><a href="#溢出" class="headerlink" title="溢出"></a>溢出</h2><p>下面我們來看一段代碼:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// limit.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="keyword">signed</span> <span class="keyword">char</span> num = <span class="number">-1</span>;</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"signed: %hhd, unsigned: %hhu\n"</span>, num, num);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>輸出如下：<br><img src="http://opkl2tvjd.bkt.clouddn.com/limit1.png" alt="limit" title="ByXc"><br>由例1已知， -1 的補碼是 1111 1111。如果是按有符號解析的話，第一位是符號位（為負），其餘是數值位。所以正是-1。但如果是無符號為的話，八位全是數值位，即是255。</p>
+<p>還沒完咧， 繼續往下看：<br>``` c<br>    // limit2.c</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;limits.h&gt;     // 提供明示常量
+
+#define UCHAR_MIN 0     // 因為無符號最小值就是0， limits.h 頭文件里沒有
+#define UINT_MIN 0
+
+int main(void)
+{
+    printf(&quot;UCHAR_MAX = %hhu, UCHAR_MAX + 1 = %hhu\n&quot;, UCHAR_MAX, UCHAR_MAX + 1);
+    printf(&quot;UCHAR_MIN = %hhu, UCHAR_MIN - 1 = %hhu\n&quot;, UCHAR_MIN, UCHAR_MIN - 1);
+    printf(&quot;CHAR_MAX = %hhd, CHAR_MAX + 1 = %hhd\n&quot;, CHAR_MAX, CHAR_MAX + 1);
+    printf(&quot;CHAR_MIN = %hhd, CHAR_MIN - 1 = %hhd\n&quot;, CHAR_MIN, CHAR_MIN - 1);
+    putchar(&apos;\n&apos;);
+
+    printf(&quot;UINT_MAX = %u, UINT_MAX + 1 = %u\n&quot;, UINT_MAX, UINT_MAX + 1);
+    printf(&quot;UINT_MIN = %u, UINT_MIN - 1 = %u\n&quot;, UINT_MIN, UINT_MIN - 1);
+    printf(&quot;INT_MAX = %d, INT_MAX + 1 = %d\n&quot;, INT_MAX, INT_MAX + 1);
+    printf(&quot;INT_MIN = %d, INT_MIN - 1 = %d\n&quot;, INT_MIN, INT_MAX - 1);
+
+    return 0;
+}
+</code></pre><p><code>``:c
+輸出以下：
+![limit2](http://opkl2tvjd.bkt.clouddn.com/limit2.png &quot;ByXc&quot;)
+好吧，終於警告了。
+我只把</code>char`類型的解釋一下， 其它的整數類型也一樣，就不作重複解釋了。<br>以下是本人的瞎解釋，歡迎指出錯誤。</p>
+<p>1.正溢出。 八位無符號最大值是255。<br>      1111 1111 [+255]</p>
 <ul>
-<li>這是用 hexo + github 搭建的個人博客，</li>
-<li>有空會發一些個人學習的一些文章博客。</li>
-<li>身爲初學者， 老鳥無噴啊。</li>
-<li>先來一段 c語言的 Hello World 再說。</li>
+<li>0000 0001 [+1]<br>= (1) 0000 0000 [0]<br>符號位溢出。</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#inlcude <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello world \n"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
+<p>2.負溢出。八位無符號。<br>     0000 0000 [0]</p>
 <ul>
-<li>初學者會敲個 hello world 不丟人把，剛接觸markdown寫的不好也就這樣了。</li>
-<li><p>附上logo：</p>
-<p><img src="http://opkl2tvjd.bkt.clouddn.com/17-5-7/94556521-file_1494140192949_4bbe.jpg" alt=""></p>
-</li>
+<li>0000 0001 [1]<br>=    1111 1111 [+255]</li>
 </ul>
+<p>3.正溢出。有符號八位最大值是127。<br>  0111 1111 [+127]</p>
+<ul>
+<li>0000 0001 [+1]<br>= 1000 0000 (補碼）[-128]<br>符號位溢出</li>
+</ul>
+<p>4.負溢出。有符號八位最小值是-128。補碼為: 1000 0000。<br>   1000 0000 （補碼)[-128]</p>
+<ul>
+<li>0000 0001 [+1]<br>=  0111 1111 [+127]</li>
+</ul>
+<p>postscript:以上的代碼輸出可能不是所有的機器上都是一樣。因為本人剛看到了十五章，將現所學的進行解答。</p>
+<h2 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h2><p>唉，不說了， 繼續研究二進制浮點數。</p>
 
       
 
@@ -236,17 +286,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -297,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/06/hello-byxc/hello-byxc/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/23/binary/binary/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,18 +350,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/26/tail-recursion/index/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          關於尾遞歸的問題
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/06/hello-world/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/07/14/lonely/lonely/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">lonely</div>
       <i class="icon-circle-right"></i>
     </a>
   
