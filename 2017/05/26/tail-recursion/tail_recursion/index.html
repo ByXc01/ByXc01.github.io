@@ -15,15 +15,15 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/26/tail-recursion/tail_recursion/index.html">
 <meta property="og:site_name" content="ByXc&#39;s blog">
 <meta property="og:description" content="（我們今天來談談尾遞歸的問題） c primer plus 定義尾遞歸， 這是本人學到遞歸的一個疑惑點。 在 《c primer plus 》中文第六版中， 尾遞歸的是這樣定義的： “最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在return語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”">
-<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/not_o2.png">
-<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/02.png">
-<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/not_no2s.png">
-<meta property="og:image" content="http://opkl2tvjd.bkt.clouddn.com/o2eds.png">
-<meta property="og:updated_time" content="2017-08-23T15:55:52.324Z">
+<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_o2.png">
+<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/02.png">
+<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_no2s.png">
+<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/o2eds.png">
+<meta property="og:updated_time" content="2017-08-24T12:00:30.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="關於尾遞歸的問題">
 <meta name="twitter:description" content="（我們今天來談談尾遞歸的問題） c primer plus 定義尾遞歸， 這是本人學到遞歸的一個疑惑點。 在 《c primer plus 》中文第六版中， 尾遞歸的是這樣定義的： “最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在return語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”">
-<meta name="twitter:image" content="http://opkl2tvjd.bkt.clouddn.com/not_o2.png">
+<meta name="twitter:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_o2.png">
   
     <link rel="alternative" href="/atom.xml" title="ByXc&#39;s blog" type="application/atom+xml">
   
@@ -52,7 +52,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="http://opkl2tvjd.bkt.clouddn.com/17-5-7/94556521-file_1494140192949_4bbe.jpg" class="js-avatar">
+			<img src="https://github.com/ByXc01/Blog-image/raw/master/logo/logo.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">ByXc</a></h1>
@@ -112,7 +112,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="http://opkl2tvjd.bkt.clouddn.com/17-5-7/94556521-file_1494140192949_4bbe.jpg" class="js-avatar">
+				<img src="https://github.com/ByXc01/Blog-image/raw/master/logo/logo.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">ByXc</h1>
@@ -218,16 +218,16 @@
 <h3 id="尾遞歸的調用棧優化特性"><a href="#尾遞歸的調用棧優化特性" class="headerlink" title="尾遞歸的調用棧優化特性"></a>尾遞歸的調用棧優化特性</h3><p>相信讀者都注意到了，我一直強調，尾遞歸的實現依賴於編譯器的幫助（或者說語言的規定），為什麼這樣說呢？先看下面的程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">tail_func</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> res)</span></span></div><div class="line">&#123;</div><div class="line">       <span class="keyword">if</span> (n &lt;= <span class="number">1</span>)</div><div class="line">           <span class="keyword">return</span> res;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> tail_func(n - <span class="number">1</span>, n * res);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">       <span class="keyword">int</span> dummy[<span class="number">1014</span> * <span class="number">1024</span>];		<span class="comment">// 盡可能佔用棧</span></div><div class="line"></div><div class="line">       tail_func(<span class="number">2048</span> * <span class="number">2048</span>, <span class="number">1</span>);</div><div class="line"></div><div class="line">       <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>上面的這個程序在開了編譯優化和沒開編譯優化的情況下編譯出來的結果是不一樣的，如果不開啟優化，直接 <code>gcc -Wall factorial_tail.c</code>編譯讓後運行的話，程序會包棧崩潰。</p>
 <p>沒開編譯優化：</p>
-<p><img src="http://opkl2tvjd.bkt.clouddn.com/not_o2.png" alt="沒開編譯優化" title="沒開編譯優化"></p>
+<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_o2.png" alt="沒開編譯優化" title="沒開編譯優化"></p>
 <p>但如果開優化的話： <code>gcc -Wall -O2 factorial_tail.c</code>， 上面的程序最後就能正常運行。</p>
 <p>開了<code>-O2</code> 編譯優化:</p>
-<p><img src="http://opkl2tvjd.bkt.clouddn.com/02.png" alt="開了 -O2 編譯優化" title="開了 -O2 編譯優化"></p>
+<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/02.png" alt="開了 -O2 編譯優化" title="開了 -O2 編譯優化"></p>
 <p><strong>這裡面的原因就在於，尾遞歸的寫法只是具備了使用當前函數在調用下一個函數前把當前占有的棧銷毀，但是會不會真的這樣做，具體要看編譯器是否這樣做，如果在語言層面上，沒有規定要優化這種為調用，那編譯器就可以有自己的選擇來做不同的實現，在這種情況下，尾遞歸就不能一定解決一般遞歸的問題。</strong></p>
 <p>我們可以先看看上面的例子在開優化與未開優化的情況，編譯出來的彙編代碼有設麼不同，首先是沒開優化編譯出來factorial_tail.c 的匯編代碼 </p>
-<p><img src="http://opkl2tvjd.bkt.clouddn.com/not_no2s.png" alt="沒開優化彙編" title="沒開優化彙編"></p>
+<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_no2s.png" alt="沒開優化彙編" title="沒開優化彙編"></p>
 <p><strong>注意上面 <code>tail_func</code> 函數中的 <code>call</code> 語句， call 指令就是直接進行了函數調用，它會先壓棧，然後再 <code>jmp</code> 去 <code>tail_func</code>， 而當前額棧還在用！就是說，尾遞歸的作用沒有發揮。</strong></p>
 <p>我們在看看開了優化得到的彙編:</p>
-<p><img src="http://opkl2tvjd.bkt.clouddn.com/o2eds.png" alt="開了優化彙編" title="開了優化彙編"></p>
+<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/o2eds.png" alt="開了優化彙編" title="開了優化彙編"></p>
 <p>注意 <code>tail_func</code> 函數彙編中 <code>imull %ecx, %eax</code> 和 <code>jne .L3</code>。<code>tail_func()</code> 裡面沒有函數調用！它只是把當前函數的第二個參數改了一下，直接就又跳到函數開始的地方。此處的實現本質其實就是： 下一個函數調用繼續延用了當前的棧!</p>
 <p>這就是尾遞歸所能帶來的效果： 控制棧的增長，且減小壓棧，程序運行的效率也可能更高。。</p>
 <h2 id="結束語"><a href="#結束語" class="headerlink" title="結束語"></a>結束語</h2><p>好了， 以上就是《c primer plus》 和 網上所說的尾遞歸（是不一樣的），本人更傾向于後者， 覺得可通過編譯優化提高效率。</p>
@@ -250,13 +250,13 @@
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://opkl2tvjd.bkt.clouddn.com/zhifubao.jpg">
+                      <img class="reward-img" src="https://github.com/ByXc01/Blog-image/raw/master/QR_Code/zhifubao.jpg">
                       <span class="reward-type">支付宝</span>
                     </div>
                     
                     
                     <div class="reward-box-item">
-                      <img class="reward-img" src="http://opkl2tvjd.bkt.clouddn.com/weixin.png">
+                      <img class="reward-img" src="https://github.com/ByXc01/Blog-image/raw/master/QR_Code/weixin2.jpg">
                       <span class="reward-type">微信</span>
                     </div>
                     
@@ -351,7 +351,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          programme_exercise
+          programme exercise
         
       </div>
     </a>
@@ -477,26 +477,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">空字符</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">隨筆</a>
               </li>
              
@@ -505,7 +485,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">空字符</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gcc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">life</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,7 +505,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gets_s</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">hello</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
             
             <div class="clearfix"></div>

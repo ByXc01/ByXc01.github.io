@@ -2,23 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/05/26/tail-recursion/tail_recursion/</loc>
+    <loc>http://yoursite.com/2017/05/27/bug/bug/</loc>
     
-    <lastmod>2017-08-23T15:55:52.324Z</lastmod>
+    <lastmod>2017-08-24T13:29:21.428Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/05/29/null-character/null_character/</loc>
     
-    <lastmod>2017-08-23T15:50:15.390Z</lastmod>
+    <lastmod>2017-08-24T13:14:32.858Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2017/08/23/binary/binary/</loc>
     
-    <lastmod>2017-08-23T15:42:20.798Z</lastmod>
+    <lastmod>2017-08-24T12:59:43.047Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/23/my-life/my-life/</loc>
+    
+    <lastmod>2017-08-24T12:38:00.768Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/06/23/compilation-gcc/compilation-gcc/</loc>
+    
+    <lastmod>2017-08-24T12:34:54.673Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/05/29/gets-s/gets_s/</loc>
+    
+    <lastmod>2017-08-24T12:28:52.291Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/05/26/programme-exercise/programme_exercise/</loc>
+    
+    <lastmod>2017-08-24T12:06:17.587Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/05/26/tail-recursion/tail_recursion/</loc>
+    
+    <lastmod>2017-08-24T12:00:30.536Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/05/06/hello-byxc/hello-byxc/</loc>
+    
+    <lastmod>2017-08-24T09:28:28.236Z</lastmod>
     
   </url>
   
@@ -30,51 +72,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2017/05/27/debug/debug/</loc>
-    
-    <lastmod>2017-08-23T15:10:40.250Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/06/23/compilation-gcc/compilation-gcc/</loc>
-    
-    <lastmod>2017-08-23T13:52:55.187Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/06/23/my-life/my-life/</loc>
-    
-    <lastmod>2017-06-24T15:26:22.764Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/29/gets-s/gets_s/</loc>
-    
-    <lastmod>2017-05-29T11:25:35.336Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2017/05/06/hello-world/hello-world/</loc>
     
     <lastmod>2017-05-29T10:57:31.639Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/26/programme-exercise/programme_exercise/</loc>
-    
-    <lastmod>2017-05-26T17:17:06.569Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/06/hello-byxc/hello-byxc/</loc>
-    
-    <lastmod>2017-05-26T16:44:47.781Z</lastmod>
     
   </url>
   
