@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>關於尾遞歸的問題 | ByXc&#39;s blog</title>
+  <title>_Noreturn | ByXc&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="（我們今天來談談尾遞歸的問題） c primer plus 定義尾遞歸， 這是本人學到遞歸的一個疑惑點。 在 《c primer plus 》中文第六版中， 尾遞歸的是這樣定義的： “最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在return語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”">
-<meta name="keywords" content="尾遞歸">
+  <meta name="description" content="屁大點事寫博客今天我學了 _Noreturn 這個函數說明符，書上的內容不多就兩段字：">
+<meta name="keywords" content="_Noreturn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="關於尾遞歸的問題">
-<meta property="og:url" content="http://yoursite.com/2017/05/26/tail-recursion/tail_recursion/index.html">
+<meta property="og:title" content="_Noreturn">
+<meta property="og:url" content="http://yoursite.com/2017/09/06/Noreturn/Noreturn/index.html">
 <meta property="og:site_name" content="ByXc&#39;s blog">
-<meta property="og:description" content="（我們今天來談談尾遞歸的問題） c primer plus 定義尾遞歸， 這是本人學到遞歸的一個疑惑點。 在 《c primer plus 》中文第六版中， 尾遞歸的是這樣定義的： “最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在return語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”">
-<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_o2.png">
-<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/02.png">
-<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_no2s.png">
-<meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/o2eds.png">
-<meta property="og:updated_time" content="2017-08-24T12:00:30.536Z">
+<meta property="og:description" content="屁大點事寫博客今天我學了 _Noreturn 這個函數說明符，書上的內容不多就兩段字：">
+<meta property="og:image" content="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/_Noreturn2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/no_return1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/_Noreturn1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/no_return2.png">
+<meta property="og:updated_time" content="2017-09-06T09:21:45.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="關於尾遞歸的問題">
-<meta name="twitter:description" content="（我們今天來談談尾遞歸的問題） c primer plus 定義尾遞歸， 這是本人學到遞歸的一個疑惑點。 在 《c primer plus 》中文第六版中， 尾遞歸的是這樣定義的： “最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在return語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”">
-<meta name="twitter:image" content="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_o2.png">
+<meta name="twitter:title" content="_Noreturn">
+<meta name="twitter:description" content="屁大點事寫博客今天我學了 _Noreturn 這個函數說明符，書上的內容不多就兩段字：">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/_Noreturn2.png">
   
     <link rel="alternative" href="/atom.xml" title="ByXc&#39;s blog" type="application/atom+xml">
   
@@ -163,77 +163,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-tail-recursion/tail_recursion" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Noreturn/Noreturn" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      關於尾遞歸的問題
+      _Noreturn
     </h1>
   
 
         
-        <a href="/2017/05/26/tail-recursion/tail_recursion/" class="archive-article-date">
-  	<time datetime="2017-05-26T12:43:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
+        <a href="/2017/09/06/Noreturn/Noreturn/" class="archive-article-date">
+  	<time datetime="2017-09-06T09:01:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="（我們今天來談談尾遞歸的問題）"><a href="#（我們今天來談談尾遞歸的問題）" class="headerlink" title="（我們今天來談談尾遞歸的問題）"></a>（我們今天來談談尾遞歸的問題）</h3><hr>
-<h3 id="c-primer-plus-定義"><a href="#c-primer-plus-定義" class="headerlink" title="c primer plus 定義"></a>c primer plus 定義</h3><p><strong>尾遞歸</strong>， 這是本人學到遞歸的一個疑惑點。 在 《<em>c primer plus</em> 》中文第六版中，</p>
-<p>尾遞歸的是這樣定義的：</p>
-<p><strong>“最簡單的遞歸形式是把遞歸調用置於函數的末尾， 即正好在<code>return</code>語句之前。這種形式的遞歸被稱為尾遞歸(tail recursion), 因為遞歸調用在函數的末尾。尾遞歸是最簡單的遞歸形式，因為它相當於循環。”</strong></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>接著書上給的尾遞歸例子是這樣的:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">rfact</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> ans;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (n &gt; <span class="number">0</span>)</div><div class="line">        ans = n * rfact(n - <span class="number">1</span>);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        ans = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>這個版本，個人覺得不夠好。手動優化了一下。因為對rfact()的單次遞歸調用是函數返回前最後一條的執行語句。在rfact()中碰巧最後一條語句也是對rfact()的調用(引用百度百科， 對於《<em>c primer plus</em>》的定義，也是算尾遞歸吧)：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">rfact</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">       <span class="keyword">if</span> (n &lt;= <span class="number">1</span>)</div><div class="line">           <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> rfact(n - <span class="number">1</span>) * n;		<span class="comment">// 省略不必要的存儲</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h1 id="屁大點事寫博客"><a href="#屁大點事寫博客" class="headerlink" title="屁大點事寫博客"></a>屁大點事寫博客</h1><p>今天我學了 <code>_Noreturn</code> 這個函數說明符，書上的內容不多就兩段字：<br><img src="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/_Noreturn2.png" alt="書上的" title="_Noreturn"></p>
+<a id="more"></a>
+<p> 準備寫個小程序測試一下。 結果還是出了 <strong>bug</strong>。</p>
+<p>代碼如下:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line">_<span class="function">Noreturn <span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">double</span>)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">   	hello(<span class="number">66.66</span>);</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"empty\n"</span>);</div><div class="line"></div><div class="line">   	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">_<span class="function">Noreturn <span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">double</span> n)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"n = %f\n"</span>, n);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我測試到的結果：<br><img src="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/no_return1.png" alt="no_return1" title="bug"></p>
+<p>有兩個問題：<br>第一個， 我沒有用 <code>return;</code> 卻有警告: ‘noreturn’ 函數返回了。<br>第二個， 輸出的結果也出乎我意料， 輸出了兩次 <code>n</code> 的值。</p>
+<p>俗話說：“有問題，問度娘”。 我搜了一下 <code>_Noreturn</code> (C11)關鍵字，結果沒有找到。 後來去查了 <a href="http://zh.cppreference.com/w/c/language/_Noreturn" title="cppreference" target="_blank" rel="external">C語言參考手冊</a> 才知道問題出在哪。</p>
+<p>我截圖了：<br><img src="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/_Noreturn1.png" alt="cppreference" title="_Noreturn"><br>解釋部分已經說的很清楚了。<strong><code>_Noreturn</code> 關鍵字出現于函數聲明中，并指定函數不會通過 <code>return</code> 語句或抵達函數體結尾而結束。若聲明了 <code>_Noreturn</code> 的函數返回了， 則行為未定義。</strong></p>
 <hr>
-<p>別以為就這樣就完事了， 那時候我對<strong>尾遞歸</strong>還不是太理解(現在也不是很理解），隨後即上網查， 不搜不知道， 一搜嚇一跳。這跟書本的尾遞歸不太一樣啊。。。</p>
-<p>但是在百度百科是這樣定義的：</p>
-<h3 id="百度百科定義"><a href="#百度百科定義" class="headerlink" title="百度百科定義"></a>百度百科定義</h3><p><strong>“如果一個函數中所有遞歸形式的調用都出現在函數的末尾，我們稱這個遞歸函數是尾遞歸的。當遞歸調用時整個函數體最後執行的語句且他的返回值不屬於表達式的一部分時，這個遞歸調用就是尾遞歸。尾遞歸函數的特點是在回歸過程中不用做任何操作，這個特性很重要，因為大多數現待的編譯器會利用這種特性點自動生成優化的代碼”</strong></p>
-<p>(又是另一個觀點啊， 對於我這種理解能力差的初學者真是想不通) 示例代碼如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">facttail</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> a)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">/* Compute a factorialina tail - recursive manner */</span></div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> a;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> facttail(n - <span class="number">1</span>, n * a);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>“這種定義還需要接受第二個參數a, 除此之外並沒有太大區別。a（初始化為1）維護遞歸層次的深度。這就讓我們避免了每次還需要將返回值再乘以n。然而，在每次遞歸調用中，令 a = a * n 並且 n =  n - 1。繼續遞歸調用，直到 n = 1， 這是滿足結束條件，此時直接返回 a 即可。”</strong></p>
-<p>沒錯，照百度百科的定義這個代碼才是<strong>尾遞歸</strong>， 算法也比前兩個例子簡便要好許多。</p>
-<hr>
-<h3 id="博客園-twoon-的博客截取"><a href="#博客園-twoon-的博客截取" class="headerlink" title="博客園 twoon 的博客截取"></a>博客園 twoon 的博客截取</h3><p>在博客園看到一個不錯的博文<a href="http://www.cnblogs.com/catch/p/3495450.html" title="說說尾遞歸" target="_blank" rel="external">說說尾遞歸</a></p>
-<p>博文中的<strong>尾遞歸</strong>的代碼跟**百度百科的示例代碼差不多。接下我將主要部分再寫一下吧， 望原作者勿怪。</p>
-<h3 id="什麼是尾遞歸"><a href="#什麼是尾遞歸" class="headerlink" title="什麼是尾遞歸"></a>什麼是尾遞歸</h3><p>什麼事尾遞歸(tail recursion)呢？顧名思義，就是種“不一樣”的遞歸，說到它不一樣，就得說說一般的遞歸，比如下面的求階乘(factorial)，教課書上會告訴我們，如果這個函數的深度太深，很容易棧溢出。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 先不考慮溢出的問題</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line">&#123;</div><div class="line">       <span class="keyword">if</span> (n &lt;= <span class="number">1</span>)</div><div class="line">           <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> (n * func(n - <span class="number">1</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>原因很多人都知道的，讓我們先回顧一下函數調用的大概過程:</p>
-<ul>
-<li><p>1: 調用開始前，調用方（或函數本身）會往棧上壓相關的數據，參數，返回地址，局部變量等。</p>
-</li>
-<li><p>2: 執行函數。</p>
-</li>
-<li><p>3: 清理棧上的相關的數據，返回。(據我所了解好像並沒有清理, 只是esp移動了而已。詳細的請自行查找“函數棧”， 此文不講函數棧，可能等我學會 <strong>gdb</strong> 和一點 <strong>彙編</strong> 再作深入研究)</p>
-</li>
-</ul>
-<p>因此，在函數 A 執行的時候，如果在第二步中，它又調用一個函數 B, B 有調用 C … 棧就不斷地增長地裝入數據，當這個調用鏈很深的時候，棧就很容易就滿了，這就是一般遞歸函數所面臨的大問題。</p>
-<p><strong>而尾遞歸在某些語言上，能避免上述所說的問題，注意是某些語言上，尾遞歸本身并不能消除函數調用棧過長的問題，那什麼是尾遞歸呢？在上面寫一般遞歸函數 func() 中, 我們可以看到， fun(n) 是依賴于 func(n - 1) 的，func(n) 只有得到 func(n - 1) 的結果之後，才能計算它自己的返回值，因此理論上，在 func(n - 1) 返回之前， func(n), 不能結束返回。因此 func(n) 就必須保留它在棧上的數據，直到 func(n - 1) 先返回， 而尾遞歸的實例可以在編譯器的幫助下，消除這個限制:</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 先不考慮溢出</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">tail_func</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> res)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> tail_func(n - <span class="number">1</span>, n * res);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 向下面這樣調用</span></div><div class="line">tail_func(<span class="number">10000000000</span>, <span class="number">1</span>);</div></pre></td></tr></table></figure>
-<p>從上可以看出尾遞歸把返回結果放到了調用的參數里。這個細小的變化導致，tail_fun(n, res) 不必像以前一樣，非要拿到了 tail_func(n - 1, n * res) 的返回值，才能計算它自己的返回結果 – 它就完全等於 tail_fun(n - 1, n * res) 的返回值。 因此理論上: tail_func(n) 在調用 tail_func(n - 1） 前， 是完全就可以摧毀自己放在棧上的東西。</p>
-<p>這就是為什麼尾遞歸如果在得到編譯器的幫助下，是完全避免溢出的原因： 每一個函數在調用下一個函數之前，都能做到先把當前自己佔用的棧先釋放了， 尾遞歸的調用鏈上可以做到只有一個函數在使用棧，因此可以無限地調用！</p>
-<h3 id="尾遞歸的調用棧優化特性"><a href="#尾遞歸的調用棧優化特性" class="headerlink" title="尾遞歸的調用棧優化特性"></a>尾遞歸的調用棧優化特性</h3><p>相信讀者都注意到了，我一直強調，尾遞歸的實現依賴於編譯器的幫助（或者說語言的規定），為什麼這樣說呢？先看下面的程序：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">tail_func</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> res)</span></span></div><div class="line">&#123;</div><div class="line">       <span class="keyword">if</span> (n &lt;= <span class="number">1</span>)</div><div class="line">           <span class="keyword">return</span> res;</div><div class="line"></div><div class="line">       <span class="keyword">return</span> tail_func(n - <span class="number">1</span>, n * res);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">       <span class="keyword">int</span> dummy[<span class="number">1014</span> * <span class="number">1024</span>];		<span class="comment">// 盡可能佔用棧</span></div><div class="line"></div><div class="line">       tail_func(<span class="number">2048</span> * <span class="number">2048</span>, <span class="number">1</span>);</div><div class="line"></div><div class="line">       <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>上面的這個程序在開了編譯優化和沒開編譯優化的情況下編譯出來的結果是不一樣的，如果不開啟優化，直接 <code>gcc -Wall factorial_tail.c</code>編譯讓後運行的話，程序會包棧崩潰。</p>
-<p>沒開編譯優化：</p>
-<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_o2.png" alt="沒開編譯優化" title="沒開編譯優化"></p>
-<p>但如果開優化的話： <code>gcc -Wall -O2 factorial_tail.c</code>， 上面的程序最後就能正常運行。</p>
-<p>開了<code>-O2</code> 編譯優化:</p>
-<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/02.png" alt="開了 -O2 編譯優化" title="開了 -O2 編譯優化"></p>
-<p><strong>這裡面的原因就在於，尾遞歸的寫法只是具備了使用當前函數在調用下一個函數前把當前占有的棧銷毀，但是會不會真的這樣做，具體要看編譯器是否這樣做，如果在語言層面上，沒有規定要優化這種為調用，那編譯器就可以有自己的選擇來做不同的實現，在這種情況下，尾遞歸就不能一定解決一般遞歸的問題。</strong></p>
-<p>我們可以先看看上面的例子在開優化與未開優化的情況，編譯出來的彙編代碼有設麼不同，首先是沒開優化編譯出來factorial_tail.c 的匯編代碼 </p>
-<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/not_no2s.png" alt="沒開優化彙編" title="沒開優化彙編"></p>
-<p><strong>注意上面 <code>tail_func</code> 函數中的 <code>call</code> 語句， call 指令就是直接進行了函數調用，它會先壓棧，然後再 <code>jmp</code> 去 <code>tail_func</code>， 而當前額棧還在用！就是說，尾遞歸的作用沒有發揮。</strong></p>
-<p>我們在看看開了優化得到的彙編:</p>
-<p><img src="https://github.com/ByXc01/Blog-image/raw/master/tail_recusion/o2eds.png" alt="開了優化彙編" title="開了優化彙編"></p>
-<p>注意 <code>tail_func</code> 函數彙編中 <code>imull %ecx, %eax</code> 和 <code>jne .L3</code>。<code>tail_func()</code> 裡面沒有函數調用！它只是把當前函數的第二個參數改了一下，直接就又跳到函數開始的地方。此處的實現本質其實就是： 下一個函數調用繼續延用了當前的棧!</p>
-<p>這就是尾遞歸所能帶來的效果： 控制棧的增長，且減小壓棧，程序運行的效率也可能更高。。</p>
-<h2 id="結束語"><a href="#結束語" class="headerlink" title="結束語"></a>結束語</h2><p>好了， 以上就是《c primer plus》 和 網上所說的尾遞歸（是不一樣的），本人更傾向于後者， 覺得可通過編譯優化提高效率。</p>
-<p>還有的就是，上面的彙編代碼小聰是看不懂了，只是當個搬運工。。</p>
-<p><strong>最後提一下，本人要盡快把 《c primer plus》 看完。所以也并有什麼時間寫博客（其實以我的能力也寫不出什麼博客)</strong></p>
-<h1 id="Happy-Birthday-to-myself"><a href="#Happy-Birthday-to-myself" class="headerlink" title="Happy Birthday to myself."></a>Happy Birthday to myself.</h1>
+<p>可能我這種情況也是未定義(抵達函數結尾而結束)。<br>以下是按照<strong>C語言參考手冊</strong>解釋的要求更改了代碼：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;     // for exit()</span></span></div><div class="line"></div><div class="line">_<span class="function">Noreturn <span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">double</span>)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">	hello(<span class="number">66.66</span>);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"empty\n"</span>);</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 解釋中說到 _Noreturn 關鍵字出現在函數聲明中。</span></div><div class="line"><span class="comment">// _Noreturn 在函數定義好像可有可無(本小白也不敢確定)， 去掉也完美編譯運行。</span></div><div class="line">_<span class="function">Noreturn <span class="keyword">void</span> <span class="title">hello</span><span class="params">(<span class="keyword">double</span> n)</span></span></div><div class="line">&#123;</div><div class="line">   	<span class="built_in">printf</span>(<span class="string">"n = %f\n"</span>, n);</div><div class="line">   	<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>結果是我想要的， <code>gcc</code>不報警， 輸出也正常了。<br><img src="https://raw.githubusercontent.com/ByXc01/Blog-image/master/_Noreturn/no_return2.png" alt="no_return2" title="ok"></p>
+<h2 id="結束語"><a href="#結束語" class="headerlink" title="結束語"></a>結束語</h2><p>最后說一下： 多敲代碼， 不懂得地方多用搜索引擎， 實在找不到再去問人或發貼子。</p>
+
       
 
       
@@ -277,7 +239,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">尾遞歸</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">_Noreturn</a>
         		</li>
       		
 		</ul>
@@ -333,7 +295,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/05/26/tail-recursion/tail_recursion/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/06/Noreturn/Noreturn/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -347,18 +309,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/26/programme-exercise/programme_exercise/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          programme exercise
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/06/hello-byxc/hello-byxc/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ByXc&#39;s blog</div>
+    <a href="/2017/08/23/binary/binary/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">binary</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -374,8 +327,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2017/05/26/tail-recursion/tail_recursion/", 
-    sourceId: "tail-recursion/tail_recursion",
+    url: "http://yoursite.com/2017/09/06/Noreturn/Noreturn/", 
+    sourceId: "Noreturn/Noreturn",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
