@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/binary/while2.png">
 <meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/binary/limit.png">
 <meta property="og:image" content="https://github.com/ByXc01/Blog-image/raw/master/binary/limit2.png">
-<meta property="og:updated_time" content="2017-08-24T12:59:43.047Z">
+<meta property="og:updated_time" content="2017-10-08T09:26:20.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="binary">
 <meta name="twitter:description" content="原碼、反碼、補碼此博客部分轉載 计算机为什么选用二进制补码（1）—原码、反码、补码 1.總的概念(1): 數在計算機中是以二進制形式表示的；(2): 數分為有符號數和無符號數；(3): 原碼、反碼、補碼都是有定點數的表示方法；(4): 無符號數全部按正數處理；(5): 一個有符號定點數的最高位，0是正，1是負；">
@@ -194,7 +194,7 @@
 <h3 id="原碼和反碼的0都有兩種表示"><a href="#原碼和反碼的0都有兩種表示" class="headerlink" title="原碼和反碼的0都有兩種表示"></a>原碼和反碼的0都有兩種表示</h3><p>+0 = 0000 0001<br>-0 = 1000 0001<br>因此原碼和反碼表示的範圍都是是-127 ~ +127。<br><strong>但補碼的0只有一種表示，即 0000 0000。那麼補碼的表示範圍是-128 ~ +127</strong><br>當時本人一直是沒想明白：為什麼可以表示多一位，而且還是-128。<br>於是找到以下答案：<br>既然補碼表示0的是 0000 0000 那麼就多出一位，即: 1000 0000。其實這是一個規定， 這個補碼表示的是 -128。況且[1000 0000]也沒有相對應的原碼。</p>
 <h3 id="舉個栗子"><a href="#舉個栗子" class="headerlink" title="舉個栗子"></a>舉個栗子</h3><p>+100 0110(正數)<br>原碼: 0100 0110<br>反碼: 0100 0110<br>補碼: 0100 0110</p>
 <p>-100 0110(負數)<br>原碼： 1100 0110<br>反碼： 1011 1001<br>補碼： 1011 1010</p>
-<h2 id="4-幾個特殊定義："><a href="#4-幾個特殊定義：" class="headerlink" title="4.幾個特殊定義："></a>4.幾個特殊定義：</h2><p>(1): n位補碼能表示的範圍：有符號數是 -2^(n-1) 到 2^(n-1)-1。無符號是 0 到 2^(n-1)。<br>(2): -128 的補碼是 1000 0000, -128 + 1 = -127，(-127)補 = 1000 0001 = 1000 0000 + 0000 0001 符合運算規則。<br>(3): 0 的補碼 0000 0000</p>
+<h2 id="4-幾個特殊定義："><a href="#4-幾個特殊定義：" class="headerlink" title="4.幾個特殊定義："></a>4.幾個特殊定義：</h2><p>(1): n位補碼能表示的範圍：有符號數是 -(2^(n-1)) 到 2^(n-1)-1。無符號是 0 到 2^n-1 。<br>(2): -128 的補碼是 1000 0000, -128 + 1 = -127，(-127)補 = 1000 0001 = 1000 0000 + 0000 0001 符合運算規則。<br>(3): 0 的補碼 0000 0000</p>
 <h2 id="既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼"><a href="#既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼" class="headerlink" title="既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼"></a>既然學會了原碼和補碼就可以解釋一下以前遇到有趣的代碼</h2><p>其實也沒有學會，因為原碼、反碼和補碼都有公式。反正我是沒看明白。以前老師也沒講公式上來就是說：原碼符號位0表示正，1表示負。反碼就是除了符號位不變， 1變0,0變1。補碼就是反碼+1。</p>
 <h3 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h3><p>本人學C語言是看書入門的， c primer plus是一本很好的入門書。書中第六章的“6.2.1 終止 while 循環”有個問題就是一個變量自減特定次后會從負數變成正數，讓後終止循環。<br><img src="https://github.com/ByXc01/Blog-image/raw/master/binary/while.png" alt="c primer plus" title="while"><br>測試了一下， 果真如此。代碼如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// while.c</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">signed</span> <span class="keyword">char</span> index = <span class="number">1</span>;      <span class="comment">// 使用 char ， 使用其它整數類型迭代次數較多。</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span> (--index &lt; <span class="number">5</span>)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, index);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n\nlast value: %d\n"</span>, index);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>輸出如下：<br><img src="https://github.com/ByXc01/Blog-image/raw/master/binary/while2.png" alt="program" title="while test"><br><strong>很明顯迭代的退出<code>index</code>的值是 127。 127 &lt; 5 表達式的值為0。<code>signed char</code>一字節（八位），從左往右第一位是符號位。負數用補碼存儲。範圍是 -2^(8-1) ~ 2^(8-1)-1， 即 -128 ~ 127。</strong><br>很好， 有點眉頭了。</p>
@@ -451,10 +451,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">_Noreturn</a>
               </li>
              
@@ -463,11 +459,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">life</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">源碼 反碼 補碼</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">life</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">空字符</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,19 +483,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">空字符</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hello</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gcc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hello World</a>
               </li>
             
             <div class="clearfix"></div>
