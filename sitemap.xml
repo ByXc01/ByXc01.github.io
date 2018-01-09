@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/01/09/setvbuf/setvbuf/</loc>
+    
+    <lastmod>2018-01-09T15:22:18.811Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/23/binary/binary/</loc>
     
     <lastmod>2017-10-08T09:26:20.141Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/2017/05/06/hello-byxc/hello-byxc/</loc>
     
     <lastmod>2017-08-24T09:28:28.236Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/07/14/lonely/lonely/</loc>
-    
-    <lastmod>2017-08-23T15:11:12.463Z</lastmod>
     
   </url>
   
